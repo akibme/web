@@ -16,14 +16,14 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-
+    
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
   </head>
   <body class="dark">
     <header>
       <nav class="navbar">
-        <ul class="nav-links">
+        <ul class="nav-links" id="navLinks">
           <li><a class="active" href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
@@ -31,9 +31,15 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
 
-        <button id="theme-btn">
-          <i class="fa-solid fa-moon"></i>
-        </button>
+        <div class="nav-buttons">
+          <button id="theme-btn">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <button id="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
       </nav>
     </header>
 
@@ -185,11 +191,18 @@
       </div>
 
       <div class="contact-link">
-        <a href="https://www.facebook.com/akib.dev" class="btn"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://github.com/akibme" class="btn"><i class="fa-brands fa-github"></i></a>
-        <a href="https://api.whatsapp.com/send?phone=8801701466702" class="btn"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="https://x.com/akib_me_bd" class="btn"><i class="fa-brands fa-x-twitter"></i></a>
-
+        <a href="https://www.facebook.com/akib.dev" class="btn"
+          ><i class="fa-brands fa-facebook"></i
+        ></a>
+        <a href="https://github.com/akibme" class="btn"
+          ><i class="fa-brands fa-github"></i
+        ></a>
+        <a href="https://api.whatsapp.com/send?phone=8801701466702" class="btn"
+          ><i class="fa-brands fa-whatsapp"></i
+        ></a>
+        <a href="https://x.com/akib_me_bd" class="btn"
+          ><i class="fa-brands fa-x-twitter"></i
+        ></a>
       </div>
     </section>
 
@@ -211,6 +224,29 @@
           icon.className = "fa-solid fa-moon";
         }
       };
+
+      const menuBtn = document.getElementById("menu-btn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+
+    const icon = menuBtn.querySelector("i");
+
+    if(navLinks.classList.contains("show")){
+        icon.classList.replace("fa-bars","fa-xmark");
+    }else{
+        icon.classList.replace("fa-xmark","fa-bars");
+    }
+});
+
+// Close menu after clicking a link
+document.querySelectorAll(".nav-links a").forEach(link=>{
+    link.addEventListener("click",()=>{
+        navLinks.classList.remove("show");
+        menuBtn.querySelector("i").classList.replace("fa-xmark","fa-bars");
+    });
+});
     </script>
   </body>
 </html>

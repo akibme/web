@@ -281,7 +281,7 @@ color: var(--text);
 }
 .contact-link a {
   color: var(--text);
-  margin-left: 20px;
+  margin-left: 30px;
 }
 
 /* ===========================
@@ -289,7 +289,28 @@ color: var(--text);
 =========================== */
 
 @media (max-width:992px){
+header{
+    top:10px;
+}
 
+.navbar{
+    width:95%;
+    flex-direction:column;
+    gap:15px;
+}
+
+.nav-links{
+    width:100%;
+    justify-content:center;
+    flex-wrap:wrap;
+    border-radius:20px;
+    padding:12px;
+}
+
+#theme-btn{
+    width:48px;
+    height:48px;
+}
 .hero-content{
     gap:30px;
 }
@@ -315,8 +336,38 @@ color: var(--text);
 @media (max-width:768px){
 
 header{
-    top:10px;
+    top:0;
+    padding:10px;
 }
+
+.navbar{
+    width:100%;
+    gap:12px;
+}
+
+.nav-links{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    padding:10px;
+    border-radius:16px;
+}
+
+.nav-links a{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:12px 0;
+    border-radius:10px;
+    font-size:15px;
+}
+
+#theme-btn{
+    width:50px;
+    height:50px;
+}
+
 
 .navbar{
     flex-direction:column;
@@ -384,6 +435,88 @@ header{
 
 .home-right-site img{
     max-width:220px;
+}
+
+}
+
+
+/* Right Side Buttons */
+
+.nav-buttons{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+#menu-btn{
+    display:none;
+    width:52px;
+    height:52px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:20px;
+    background:rgba(255,255,255,.05);
+    color:var(--text);
+    border:1px solid var(--border);
+    backdrop-filter:blur(10px);
+}
+
+/* =========================
+   Mobile & Tablet
+========================= */
+
+@media (max-width:768px){
+
+header{
+    top:10px;
+}
+
+.navbar{
+    width:92%;
+    justify-content:flex-end;
+}
+
+#menu-btn{
+    display:block;
+}
+
+.nav-links{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+
+    overflow:hidden;
+
+    max-height:0;
+    padding:0;
+
+    transition:.4s;
+}
+
+.nav-links.show{
+    max-height:350px;
+    padding:10px 0;
+}
+
+.nav-links li{
+    width:100%;
+}
+
+.nav-links a{
+    display:block;
+    width:100%;
+    padding:16px;
+    text-align:center;
 }
 
 }
